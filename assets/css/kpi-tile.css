@@ -1,0 +1,17 @@
+.card.p-1 {
+    border: 0 solid lightgray;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.text-green-pastel {
+    color: #4ECDC4;
+}
+
+.text-red-pastel {
+    color: #fc6180;
+}
+
+.text-yellow-pastel {
+    color: #fdfd96;
+}

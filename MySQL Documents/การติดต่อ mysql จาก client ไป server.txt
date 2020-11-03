@@ -1,0 +1,4 @@
+การติดต่อ mysql จาก client ไป server
+1. ที่ server จะต้องสร้าง user ที่มี Host เป็น '%' หรือเลขของเครื่อง IP client นั้นๆ
+2. ที่นี้ที่ client ก็เลือก host ที่อยู่ของ mysql serverนั้น เชื่อมต่อผ่าน port 3306 (default port)
+3. ใช้ user และ password ที่ตั้งจากข้อ 1

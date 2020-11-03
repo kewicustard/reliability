@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+    <title>Sidebar template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/custom-themes.css">
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png" />
+</head>
+
+<body>
+    <div class="page-wrapper chiller-theme sidebar-bg bg1 toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="index.html">Power System Statistics</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img class="img-responsive img-rounded" src="assets/img/image.jpg" alt="User picture">
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Yoon
+                            <strong>Green</strong>
+                        </span>
+                        <span class="user-role">Administrator</span>
+                        <span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <span>Online</span>
+                        </span>
+                    </div>
+                </div>
+                <!-- sidebar-header  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <!-- Reliability Indices part -->
+                        <li class="header-menu">
+                            <span>Reliability Indices</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span>MEA Dashboard</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="mea-strategy.html">MEA<!-- -Strategy -->
+                                            <!-- <span class="badge badge-pill badge-success">Pro</span> -->
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="mea-sepa-mea.html">MEA-SEPA MEA</a>
+                                    </li>
+                                    <li>
+                                        <a href="mea-sepa-focus-group.html">MEA-SEPA Focus Group<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 districts</a>
+                                    </li>
+                                    <li>
+                                        <a href="mea-industrial.html">MEA-Industrial Area</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-chart-bar"></i>
+                                <span>District Dashboard</span>
+                                <!-- <span class="badge badge-pill badge-primary">3</span> -->
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="district-strategy.html">District<!-- -Strategy --></a>
+                                    </li>
+                                    <li>
+                                        <a href="district-sepa-mea.html">District-SEPA MEA</a>
+                                    </li>
+                                    <li>
+                                        <a href="district-sepa-focus-group.html">District-SEPA Focus Group<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 districts</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- / Reliability Indices part -->
+
+                        <!-- Reliability Indices - Unofficial part -->
+                        <li class="header-menu">
+                            <span>Reliability Indices Unofficial</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span>MEA Dashboard<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unofficial</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="mea-strategy-15days.html">MEA<!-- -Strategy --> Unofficial
+                                            <!-- <span class="badge badge-pill badge-success">Pro</span> -->
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="mea-sepa-mea-15days.html">MEA-SEPA MEA Unofficial</a>
+                                    </li>
+                                    <li>
+                                        <a href="mea-sepa-focus-group-15days.html">MEA-SEPA Focus Group 8<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;districts Unofficial</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-chart-bar"></i>
+                                <span>District Dashboard<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unofficial</span>
+                                <!-- <span class="badge badge-pill badge-primary">3</span> -->
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="district-strategy-15days.html">District<!-- -Strategy --> Unofficial</a>
+                                    </li>
+                                    <li>
+                                        <a href="district-sepa-mea-15days.html">District-SEPA MEA Unofficial</a>
+                                    </li>
+                                    <li>
+                                        <a href="district-sepa-focus-group-15days.html">District-SEPA Focus Group 8<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;districts Unofficial</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- / Reliability Indices - Unofficial part -->
+                        
+                        <!-- Reliability Document part  -->
+                        <li class="header-menu">
+                            <span>Reliability Documentation</span>
+                        </li>
+                        <li>
+                            <a href="assets/document/cal_indices.pdf" target="_blank">
+                                <i class="fa fa-file-alt"></i>
+                                <span>Reliability Calculation</span>
+                            </a>
+                        </li>
+                        <!-- / Reliability Document part  -->
+
+                        <!-- Outages Statistics part -->
+                        <li class="header-menu">
+                            <span>Outage Statistics</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-search"></i>
+                                <span>Formal Outages</span>
+                                <!-- <span class="badge badge-pill badge-primary">3</span> -->
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="formal-outage-feeder.html">Feeders</a>
+                                    </li>
+                                    <li>
+                                        <a href="formal-outage-line.html">Transmission Lines</a>
+                                    </li>
+                                    <li>
+                                        <a href="formal-outage-station.html">Stations</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-search"></i>
+                                <span>Outages for Indices<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calculation</span>
+                                <!-- <span class="badge badge-pill badge-primary">3</span> -->
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="formal-indices-feeder.html">Feeders</a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="formal-outage-line.html">Transmission Lines</a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-search"></i>
+                                <span>Top Outages</span>
+                                <!-- <span class="badge badge-pill badge-primary">3</span> -->
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="top-indices-feeder.html">Feeders</a>
+                                    </li>
+                                    <li>
+                                        <a href="top-indices-feeder-cause.html">Feeder Causes</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- <li>
+                            <a href="informal-outage.html">
+                                <i class="fa fa-calendar"></i>
+                                <span>Informal Outages</span>
+                            </a>
+                        </li> -->
+                        <!-- / Outages Statistics part -->
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+        </nav>
+        <!-- sidebar-wrapper  -->
+        <main class="page-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-12">
+                        <h2>SAIFI</h2>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12 mb-3">
+                                <div class="card text-white bg-success">
+                                    <div class="card-header">Header</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Success card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12 mb-3">
+                                <div class="card text-white bg-danger">
+                                    <div class="card-header">Header</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Danger card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>                         
+                            </div>
+                            <div class="col-md-4 col-sm-12 mb-3">
+                                <div class="card text-white bg-warning">
+                                    <div class="card-header">Header</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Warning card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-12">
+                        <h2>SAIDI</h2>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12 mb-3">
+                                <div class="card text-white bg-success">
+                                    <div class="card-header">Header</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Success card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12 mb-3">
+                                <div class="card text-white bg-danger">
+                                    <div class="card-header">Header</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Danger card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>                         
+                            </div>
+                            <div class="col-md-4 col-sm-12 mb-3">
+                                <div class="card text-white bg-warning">
+                                    <div class="card-header">Header</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Warning card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <h3>Themes</h3>
+                        <p>Here are more themes that you can use</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        
+                    </div>
+                    <div class="form-group col-md-12">
+                        
+                    </div>
+                    <div class="form-group col-md-12">
+                        
+                    </div>
+                    <div class="form-group col-md-12">
+                        
+                    </div>
+                   
+                </div>
+
+                <hr>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- page-content" -->
+    </div>
+    <!-- page-wrapper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+
+</html>

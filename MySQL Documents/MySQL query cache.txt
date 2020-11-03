@@ -1,0 +1,5 @@
+SHOW variables LIKE 'query_cache%';
+
+SHOW status LIKE 'qcache_free_memory';
+
+SHOW STATUS WHERE Variable_name RLIKE 'Qcache';

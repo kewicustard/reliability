@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<!-- saved from url=(0108)https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line -->
+<html lang="en-us" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Managing MySQL Databases and Users From the Command Line</title>
+<meta name="keywords" content="hosting, web hosting, linux hosting, vps hosting, fast hosting, wordpress hosting">
+<meta name="description" content="How to Manage MySQL Databases and Users From the Command Line">
+<meta name="robots" content="index,archive,follow">
+<link rel="canonical" href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line">
+<link rel="icon" href="https://www.a2hosting.com/favicon.ico">
+<link rel="stylesheet" href="./Managing MySQL Databases and Users From the Command Line_files/bootstrap.css">
+<link rel="stylesheet" href="./Managing MySQL Databases and Users From the Command Line_files/fonts.css">
+<link rel="stylesheet" href="./Managing MySQL Databases and Users From the Command Line_files/main.css">
+<link rel="alternate" data-swete-translate="0" href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line" hreflang="en">
+<link rel="alternate" data-swete-translate="0" href="https://www.a2hosting.in/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line" hreflang="en-in">
+<link rel="alternate" data-swete-translate="0" href="https://www.a2hosting.com.mx/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line" hreflang="es-mx">
+<link rel="alternate" data-swete-translate="0" href="https://www.a2hosting.co.uk/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line" hreflang="en-gb">
+<link rel="alternate" data-swete-translate="0" href="https://www.a2hosting.co.za/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line" hreflang="en-za">
+<link rel="alternate" data-swete-translate="0" href="https://www.a2hosting.com.br/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line" hreflang="pt-br">
+<link rel="alternate" data-swete-translate="0" href="https://www.a2hosting.es/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line" hreflang="es-es">
+<link rel="alternate" data-swete-translate="0" href="https://www.a2hosting.sg/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line" hreflang="en-sg">
+<link rel="alternate" data-swete-translate="0" href="https://www.a2hosting.com.co/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line" hreflang="es-co">
+<link rel="alternate" data-swete-translate="0" href="https://www.a2hosting.ca/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line" hreflang="en-ca">
+<script type="text/javascript" async="" src="./Managing MySQL Databases and Users From the Command Line_files/js"></script><script type="text/javascript" async="" src="./Managing MySQL Databases and Users From the Command Line_files/f.txt"></script><script type="text/javascript" async="" src="./Managing MySQL Databases and Users From the Command Line_files/analytics.js.download"></script><script type="text/javascript" async="" src="https://livechat.a2hosting.com/chatserver/livechat.ashx?siteId=100018000"></script><script type="text/javascript" async="" src="https://livechat.a2hosting.com/chatserver/livechat.ashx?siteId=100018000"></script><script src="./Managing MySQL Databases and Users From the Command Line_files/bat.js.download" async=""></script><script src="./Managing MySQL Databases and Users From the Command Line_files/475481482662863" async=""></script><script async="" src="./Managing MySQL Databases and Users From the Command Line_files/fbevents.js.download"></script><script type="text/javascript" async="" src="https://livechat.a2hosting.com/chatserver/livechat.ashx?siteId=100018000"></script><script type="text/javascript" async="" src="https://livechat.a2hosting.com/chatserver/livechat.ashx?siteId=100018000"></script><script type="text/javascript" src="./Managing MySQL Databases and Users From the Command Line_files/jquery.min.js.download"></script>
+<script type="text/javascript">window.jQuery || document.write('<script src="/js/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="./Managing MySQL Databases and Users From the Command Line_files/bootstrap.min.js.download"></script>
+<script type="text/javascript" src="./Managing MySQL Databases and Users From the Command Line_files/jquery.main.js.download"></script><style type="text/css">.js-slide-hidden{position:absolute !important;left:-9999px !important;top:-9999px !important;display:block !important}</style><style type="text/css"></style>
+<script type="text/javascript" src="./Managing MySQL Databases and Users From the Command Line_files/URI.js.download"></script>
+<script type="text/javascript" src="./Managing MySQL Databases and Users From the Command Line_files/layout_main.js.download"></script>
+
+<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+
+
+<script type="text/javascript" src="./Managing MySQL Databases and Users From the Command Line_files/locale.js.download"></script>
+
+
+
+<style>.async-hide { opacity: 0 !important} </style>
+<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',4000,
+{'GTM-T535N7P':true});</script>
+<script async="" src="./Managing MySQL Databases and Users From the Command Line_files/js(1)"></script>
+<script>
+  $.ajax({ url: '/includes/locale/get-domains', dataType: 'json' }).done(function (domains) {
+    console.log('Got domains: '+JSON.stringify(domains));
+
+    var index = domains.indexOf(window.location.hostname);
+    if(index > -1) {
+      domains.splice(index, 1);
+    }
+
+    console.log('Domains after removing '+window.location.hostname+' : '+JSON.stringify(domains));
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-344424-1', {
+      'linker': {
+        'domains': domains
+      },
+      'optimize_id': 'GTM-T535N7P'
+    });
+
+    gtag('config', 'AW-1071532724', {
+      'linker': {
+        'domains': domains 
+      }
+    });
+  });
+</script>
+
+
+
+<script id="ztest-include-head-all" class="jstest"></script>
+
+
+
+
+<meta name="google-site-verification" content="_6yjqb_XWxCbz9bVVUdnIvdx9O7YzcANJuQeu4HQDno">
+<script async="" src="./Managing MySQL Databases and Users From the Command Line_files/hotjar-75404.js.download"></script><style></style><style type="text/css">.js-tab-hidden{position:absolute !important;left:-9999px !important;top:-9999px !important;display:block !important}</style><script src="./Managing MySQL Databases and Users From the Command Line_files/f(1).txt"></script></head>
+<body role="document" class="body-usd">
+
+<div id="comm100-button-13"></div>
+<script type="text/javascript">
+  var Comm100API=Comm100API||{};(function(t){function e(e){var a=document.createElement("script"),c=document.getElementsByTagName("script")[0];a.type="text/javascript",a.async=!0,a.src=e+t.site_id,c.parentNode.insertBefore(a,c)}t.chat_buttons=t.chat_buttons||[],t.chat_buttons.push({code_plan:13,div_id:"comm100-button-13"}),t.site_id=100018000,t.main_code_plan=13,e("https://livechat.a2hosting.com/chatserver/livechat.ashx?siteId="),setTimeout(function(){t.loaded||e("https://livechat.a2hosting.com/chatserver/livechat.ashx?siteId=")},5e3)})(Comm100API||{})
+</script>
+
+<div id="wrapper">
+<header id="header">
+<div class="topbar clearfix">
+<div class="container">
+&nbsp;
+<div class="language-select">
+<select class="language hidden jcf-hidden" data-jcf="{&quot;wrapNative&quot;: false, &quot;wrapNativeOnMobile&quot;: false}" data-redirect="true" id="language-select">
+<option data-image="/images/2015/flags/United-States.png" site="https://www.a2hosting.com" class="location location-us" currency="USD" value="us" selected="selected">UNITED STATES - ENGLISH</option>
+<option data-image="/images/2015/flags/Brazil.png" site="https://www.a2hosting.com.br" class="location location-br" currency="BRL" value="br">BRASIL - PORTUGUÊS</option>
+<option data-image="/images/2015/flags/Canada.png" site="https://www.a2hosting.ca" class="location location-ca" currency="CAD" value="ca">CANADA - ENGLISH</option>
+<option data-image="/images/2015/flags/Colombia.png" site="https://www.a2hosting.com.co" class="location location-co" currency="USD" value="co">COLOMBIA - ESPAÑOL</option>
+<option data-image="/images/2015/flags/India.png" site="https://www.a2hosting.in" class="location location-in" currency="INR" value="in">INDIA - ENGLISH</option>
+<option data-image="/images/2015/flags/Mexico.png" site="https://www.a2hosting.com.mx" class="location location-mx" currency="MXN" value="mx">MÉXICO - ESPAÑOL</option>
+<option data-image="/images/2015/flags/Singapore.png" site="https://www.a2hosting.sg" class="location location-sg" currency="SGD" value="sg">SINGAPORE - ENGLISH</option>
+<option data-image="/images/2015/flags/South-Africa.png" site="https://www.a2hosting.co.za" class="location location-za" currency="ZAR" value="za">SOUTH AFRICA - ENGLISH</option>
+<option data-image="/images/2015/flags/Spain.png" site="https://www.a2hosting.es" class="location location-es" currency="EUR" value="es">ESPAÑA - ESPAÑOL</option>
+<option data-image="/images/2015/flags/United-Kingdom.png" site="https://www.a2hosting.co.uk" class="location location-uk" currency="GBP" value="uk">UNITED KINGDOM - ENGLISH</option>
+</select><span class="jcf-select jcf-unselectable jcf-select-language jcf-select-hidden"><span class="jcf-select-text"><img src="./Managing MySQL Databases and Users From the Command Line_files/United-States.webp" style="display: inline;"><span class="jcf-option-location jcf-option-location-us ">UNITED STATES - ENGLISH</span></span><span class="jcf-select-opener"></span></span>
+</div>
+<div class="currency-select">
+<select class="currency hidden jcf-hidden" data-jcf="{&quot;wrapNative&quot;: false, &quot;wrapNativeOnMobile&quot;: false}" id="currency-select">
+<option class="currency currency-USD" value="USD" data-currencyid="1" selected="selected">USD $</option>
+<option class="currency currency-BRL" value="BRL" data-currencyid="12">BRL R$</option>
+<option class="currency currency-CAD" value="CAD" data-currencyid="6">CAD $</option>
+<option class="currency currency-EUR" value="EUR" data-currencyid="5">EUR €</option>
+<option class="currency currency-GBP" value="GBP" data-currencyid="7">GBP £</option>
+<option class="currency currency-INR" value="INR" data-currencyid="8">INR ₹</option>
+<option class="currency currency-MXN" value="MXN" data-currencyid="9">MXN $</option>
+<option class="currency currency-SGD" value="SGD" data-currencyid="13">SGD S$</option>
+<option class="currency currency-ZAR" value="ZAR" data-currencyid="10">ZAR R</option>
+</select><span class="jcf-select jcf-unselectable jcf-select-currency jcf-select-hidden"><span class="jcf-select-text"><span class="jcf-option-currency jcf-option-currency-USD ">USD $</span></span><span class="jcf-select-opener"></span></span>
+</div>
+<nav class="navbar text-center rightnav">
+<div class="navbar-header">
+<a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#" class="menu-toggle navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="line a"></span>
+<span class="line b"></span>
+<span class="line c"></span>
+</a>
+</div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav black-bar">
+<li>
+<a href="https://www.a2hosting.com/support" class="support support-link" role="button" aria-haspopup="true" aria-expanded="false">
+<span class="black-bar-icon icon-user"></span>
+SALES &amp; SUPPORT
+</a>
+</li>
+<li>
+<script type="text/javascript">
+									  var Comm100API=Comm100API||{};(function(t){function e(e){var a=document.createElement("script"),c=document.getElementsByTagName("script")[0];a.type="text/javascript",a.async=!0,a.src=e+t.site_id,c.parentNode.insertBefore(a,c)}t.chat_buttons=t.chat_buttons||[],t.chat_buttons.push({code_plan:13,div_id:"comm100-button-13"}),t.site_id=100018000,t.main_code_plan=13,e("https://livechat.a2hosting.com/chatserver/livechat.ashx?siteId="),setTimeout(function(){t.loaded||e("https://livechat.a2hosting.com/chatserver/livechat.ashx?siteId=")},5e3)})(Comm100API||{})
+									</script>
+<a href="javascript: comm100_livechat_open_link();">
+<span class="black-bar-icon glyphicon glyphicon-chat"></span>
+CHAT
+</a>
+</li>
+<li>
+<a href="https://my.a2hosting.com/cart.php?a=view" class="cart cart-link">
+<span class="black-bar-icon icon-cart"></span>
+CART
+</a>
+</li>
+<li>
+<a href="https://my.a2hosting.com/clientarea.php" class="login login-link">
+<span class="black-bar-icon icon-link"></span>
+LOGIN
+</a>
+</li>
+<li class="header-search">
+<a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#" class="search">
+<span class="black-bar-icon icon-search"></span>
+SEARCH
+</a>
+<form id="search_box" class="popup" method="post" action="https://www.a2hosting.com/">
+<div class="hiddenFields">
+<input type="hidden" name="params" value="eyJyZXF1aXJlZCI6ImtleXdvcmRzIn0">
+<input type="hidden" name="ACT" value="47">
+<input type="hidden" name="site_id" value="1">
+<input type="hidden" name="csrf_token" value="fae83ed6ef57cb69a50f8facff37f62e97ae06d2">
+</div>
+<fieldset>
+<input name="keywords" type="text" class="form-control">
+<input name="submit" type="submit" class="btn btn-default search-submit-button" value="SEARCH">
+</fieldset>
+</form>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<nav class="navbar navbar-default" id="nav">
+<div class="container">
+<div class="row flex-row">
+<div class="col-sm-3">
+<div class="logo header-logo">
+<a href="https://www.a2hosting.com/"><img src="./Managing MySQL Databases and Users From the Command Line_files/logo.webp" alt="A2 HOSTING OUR SPEED, YOUR SUCCESS"></a>
+</div>
+</div>
+<div class="col-sm-9">
+<div class="main-menu">
+<ul class="menu-list2 clearfix">
+<li><a href="https://www.a2hosting.com/web-hosting" class="">SHARED<br> HOSTING</a></li>
+<li><a href="https://www.a2hosting.com/wordpress-hosting" class="">WORDPRESS<br> HOSTING</a></li>
+<li class="dropdown">
+<a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#" class="">VPS<br> HOSTING</a>
+<div class="two-col-menu" style="">
+<ul class="menu-list">
+<li class="subnav-item">
+<a href="https://www.a2hosting.com/vps-hosting/core">
+<span class="dropdown-icon"><img src="./Managing MySQL Databases and Users From the Command Line_files/icon-1.webp" alt="Core VPS"></span>
+<h4>Core VPS</h4>
+<p>Managed VPS with root access</p>
+</a>
+</li>
+ <li class="subnav-item">
+<a href="https://www.a2hosting.com/vps-hosting/managed">
+<span class="dropdown-icon"><img src="./Managing MySQL Databases and Users From the Command Line_files/icon-2.webp" alt="Managed VPS Hosting"></span>
+<h4>Managed VPS</h4>
+<p>Managed VPS without root access</p>
+</a>
+</li>
+<li class="subnav-item">
+<a href="https://www.a2hosting.com/vps-hosting/unmanaged">
+<span class="dropdown-icon"><img src="./Managing MySQL Databases and Users From the Command Line_files/icon-3.webp" alt="A2 HOSTING OUR SPEED, YOUR SUCCESS"></span>
+<h4>Unmanaged VPS</h4>
+<p>Unmanaged VPS for developers</p>
+</a>
+</li>
+</ul>
+<div class="which-right">
+<a href="https://www.a2hosting.com/vps-hosting">Which is right for me?</a>
+</div>
+</div>
+</li>
+<li><a href="https://www.a2hosting.com/reseller-hosting" class="">RESELLER<br> HOSTING</a></li>
+<li class="dropdown">
+<a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#" class="">DEDICATED<br> HOSTING</a>
+<div class="two-col-menu" style="">
+<ul class="text-uppercase list-unstyled">
+<li class="subnav-item">
+<a href="https://www.a2hosting.com/dedicated-server-hosting/core">
+<span class="dropdown-icon"><img src="./Managing MySQL Databases and Users From the Command Line_files/icon-4.webp" alt="Core Dedicated Servers"></span>
+<h4>Core Servers</h4>
+<p>Managed server with root access</p>
+</a>
+</li>
+<li class="subnav-item">
+<a href="https://www.a2hosting.com/dedicated-server-hosting/managed">
+<span class="dropdown-icon"><img src="./Managing MySQL Databases and Users From the Command Line_files/icon-5.webp" alt="A2 HOSTING OUR SPEED, YOUR SUCCESS"></span>
+<h4>Managed Servers</h4>
+<p>Managed server without root access</p>
+</a>
+</li>
+<li class="subnav-item">
+<a href="https://www.a2hosting.com/dedicated-server-hosting/unmanaged">
+<span class="dropdown-icon"><img src="./Managing MySQL Databases and Users From the Command Line_files/icon-6.webp" alt="A2 HOSTING OUR SPEED, YOUR SUCCESS"></span>
+ <h4>Unmanaged Servers</h4>
+<p>Unmanaged server for developers</p>
+</a>
+</li>
+</ul>
+<div class="which-right">
+<a href="https://www.a2hosting.com/dedicated-server-hosting">Which is right for me?</a>
+</div>
+</div>
+</li>
+<li><a href="https://www.a2hosting.com/domains" class="">DOMAINS</a></li>
+<li><a href="https://www.a2hosting.com/solutions" class="">SOLUTIONS</a></li>
+</ul>
+<a href="javascript:void(0)" class="menu-toggle product-menu btn btn-primary">
+<span>Products</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<div class="mobile-menu">
+<ul class="menu-list2 clearfix">
+<li><a href="https://www.a2hosting.com/web-hosting" class="">SHARED<br> HOSTING</a></li>
+<li><a href="https://www.a2hosting.com/wordpress-hosting" class="">WORDPRESS<br> HOSTING</a></li>
+<li class="dropdown">
+<a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#" class="">VPS<br> HOSTING</a>
+<div class="two-col-menu">
+<ul class="menu-list">
+<li class="subnav-item">
+<a href="https://www.a2hosting.com/vps-hosting/core">
+<span class="dropdown-icon"><img src="./Managing MySQL Databases and Users From the Command Line_files/icon-1.webp" alt="Core VPS"></span>
+<h4>Core VPS</h4>
+<p>Managed VPS with root access</p>
+</a>
+</li>
+ <li class="subnav-item">
+<a href="https://www.a2hosting.com/vps-hosting/managed">
+<span class="dropdown-icon"><img src="./Managing MySQL Databases and Users From the Command Line_files/icon-2.webp" alt="Managed VPS Hosting"></span>
+<h4>Managed VPS</h4>
+<p>Managed VPS without root access</p>
+</a>
+</li>
+<li class="subnav-item">
+<a href="https://www.a2hosting.com/vps-hosting/unmanaged">
+<span class="dropdown-icon"><img src="./Managing MySQL Databases and Users From the Command Line_files/icon-3.webp" alt="A2 HOSTING OUR SPEED, YOUR SUCCESS"></span>
+<h4>Unmanaged VPS</h4>
+<p>Unmanaged VPS for developers</p>
+</a>
+</li>
+</ul>
+<div class="which-right">
+<a href="https://www.a2hosting.com/vps-hosting">Which is right for me?</a>
+</div>
+</div>
+</li>
+<li><a href="https://www.a2hosting.com/reseller-hosting" class="">RESELLER<br> HOSTING</a></li>
+<li class="dropdown">
+<a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#" class="">DEDICATED<br> HOSTING</a>
+<div class="two-col-menu">
+<ul class="text-uppercase list-unstyled">
+<li class="subnav-item">
+<a href="https://www.a2hosting.com/dedicated-server-hosting/core">
+<span class="dropdown-icon"><img src="./Managing MySQL Databases and Users From the Command Line_files/icon-4.webp" alt="Core Dedicated Servers"></span>
+<h4>Core Servers</h4>
+<p>Managed server with root access</p>
+</a>
+</li>
+<li class="subnav-item">
+<a href="https://www.a2hosting.com/dedicated-server-hosting/managed">
+<span class="dropdown-icon"><img src="./Managing MySQL Databases and Users From the Command Line_files/icon-5.webp" alt="A2 HOSTING OUR SPEED, YOUR SUCCESS"></span>
+<h4>Managed Servers</h4>
+<p>Managed server without root access</p>
+</a>
+</li>
+<li class="subnav-item">
+<a href="https://www.a2hosting.com/dedicated-server-hosting/unmanaged">
+<span class="dropdown-icon"><img src="./Managing MySQL Databases and Users From the Command Line_files/icon-6.webp" alt="A2 HOSTING OUR SPEED, YOUR SUCCESS"></span>
+ <h4>Unmanaged Servers</h4>
+<p>Unmanaged server for developers</p>
+</a>
+</li>
+</ul>
+<div class="which-right">
+<a href="https://www.a2hosting.com/dedicated-server-hosting">Which is right for me?</a>
+</div>
+</div>
+</li>
+<li><a href="https://www.a2hosting.com/domains" class="">DOMAINS</a></li>
+<li><a href="https://www.a2hosting.com/solutions" class="">SOLUTIONS</a></li>
+</ul>
+<a href="javascript:void(0)" class="menu-toggle product-menu btn btn-primary">
+<span>Products</span>
+</a>
+</div>
+</header>
+<section class="section-white section-kb" id="content-general">
+<div class="container">
+<div class="kb-notice kb-notice-es alert alert-info" role="alert">
+Nuestra base de conocimientos sólo está disponible actualmente en inglés. Estamos en el proceso de traducir estas páginas y las publicaremos cuando estén disponibles.
+</div>
+
+<form id="search_box_large" class="big-search" method="post" action="https://www.a2hosting.com/">
+<div class="hiddenFields">
+<input type="hidden" name="params" value="eyJyZXN1bHRfcGFnZSI6ImtiXC9yZXN1bHRzIiwicmVxdWlyZWQiOiJrZXl3b3JkcyJ9">
+<input type="hidden" name="ACT" value="47">
+<input type="hidden" name="site_id" value="1">
+<input type="hidden" name="csrf_token" value="fae83ed6ef57cb69a50f8facff37f62e97ae06d2">
+</div>
+<div class="search">
+<input name="keywords" id="search-request" type="text" placeholder="Search The KB">
+<button class="btn btn-primary" type="submit">Search!</button>
+</div>
+</form>
+<h2>Knowledge Base</h2>
+<div id="leftpanel" class="col-md-12 col-lg-8">
+<div class="welcome">
+<div class="breadcrumb"><a href="https://www.a2hosting.com/">Home</a> » <a href="https://www.a2hosting.com/kb">Knowledge Base</a> » <a href="https://www.a2hosting.com/kb/developer-corner">Developer Corner</a> » <a href="https://www.a2hosting.com/kb/developer-corner/mysql">MySQL</a> » <span class="last">Here</span></div>
+<div id="kb">
+<h1>How to manage MySQL databases and users from the command line</h1>
+<p>This article describes how to do common MySQL database administration tasks from the command line using the <em>mysql</em> program.</p>
+<div class="important">This article only applies to the products listed in the <strong>Article Details</strong> sidebar. If your account includes cPanel, you should use it instead to manage MySQL databases and users. For information about how to do this, please see <a href="https://www.a2hosting.com/kb/cpanel/cpanel-database-features/managing-mysql-databases">this article</a>.</div><div><details open="open"><summary>Table of Contents</summary><p></p>
+<ul id="toc" title="Table of Contents">
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#Creating-users-and-databases">Creating users and databases</a>
+<ul>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#Using-SQL-script-files">Using SQL script files</a></li>
+</ul>
+</li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#Deleting-tables-and-databases">Deleting tables and databases</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#Deleting-users">Deleting users</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#More-Information">More Information</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#Related-Articles">Related Articles</a></li>
+</ul>
+</details></div><h4 id="Creating-users-and-databases">Creating users and databases</h4>
+<p>To create a MySQL database and user, follow these steps:</p>
+<ol>
+<li>At the command line, log in to MySQL as the root user:
+<pre class="command">mysql -u root -p</pre></li><li>Type the MySQL root password, and then press Enter.</li><li><p>To create a database user, type the following command. Replace <span style="color:#ff0000;"><em>username</em></span> with the user you want to create, and replace <span style="color:#ff0000;"><em>password</em></span> with the user's password:<br></p><pre class="command">GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';</pre>
+<div class="note"><p>This command grants the user all permissions. However, you can grant specific permissions to maintain precise control over database access. For example, to explicitly grant the <strong>SELECT</strong> permission, you would use the following command:</p>
+<pre class="command">GRANT SELECT ON *.* TO 'username'@'localhost';</pre>
+<p> For more information about setting MySQL database permissions, please visit <a href="https://dev.mysql.com/doc/refman/5.5/en/grant.html">https://dev.mysql.com/doc/refman/5.5/en/grant.html</a>.</p>
+</div></li><li>Type <span class="user-input">\q</span> to exit the <em>mysql</em> program.</li><li><p>To log in to MySQL as the user you just created, type the following command. Replace <span style="color:#ff0000;"><em>username</em></span> with the name of the user you created in step 3:<br></p><pre class="command">mysql -u username -p</pre></li><li>Type the user's password, and then press Enter.</li><li><p>To create a database, type the following command. Replace <span style="color:#ff0000;"><em>dbname</em></span> with the name of the database that you want to create:<br></p><pre class="command">CREATE DATABASE dbname;</pre></li><li><p>To work with the new database, type the following command. Replace <span style="color:#ff0000;"><em>dbname</em></span> with the name of the database you created in step 7:<br></p><pre class="command">USE dbname;</pre></li><li><p>You can now work with the database. For example, the following commands demonstrate how to create a basic table named <em>example</em>, and how to insert some data into it:<br></p><pre class="command">CREATE TABLE example ( id smallint unsigned not null auto_increment, name varchar(20) not null, constraint pk_example primary key (id) );
+INSERT INTO example ( id, name ) VALUES ( null, 'Sample data' );
+</pre></li>
+</ol>
+<h5 id="Using-SQL-script-files">Using SQL script files</h5>
+<p>The previous procedure demonstrates how to create and populate a MySQL database by typing each command interactively with the <em>mysql</em> program. However, you can streamline the process by combining commands into a SQL script file.</p>
+<p>The following procedure demonstrates how to use a SQL script file to create and populate a database:</p>
+<ol>
+<li>As in the previous procedure, you should first create a user for the database. To do this, type the following commands:
+<pre class="command">mysql -u root -p
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';
+\q
+</pre></li><li><p>Create a file named <em>example.sql</em> and open it in your preferred text edtior. Copy and paste the following text into the file:<br></p><pre class="code">CREATE DATABASE <span style="color:#ff0000;"><em>dbname</em></span>;
+USE <span style="color:#ff0000;"><em>dbname</em></span>;
+CREATE TABLE <span style="color:#ff0000;"><em>tablename</em></span> ( id smallint unsigned not null auto_increment, name varchar(20) not null, constraint pk_example primary key (id) );
+INSERT INTO <span style="color:#ff0000;"><em>tablename</em></span> ( id, name ) VALUES ( null, 'Sample data' );</pre></li><li><p>Replace <span style="color:#ff0000;"><em>dbname</em></span> with the name of the database that you want to create, and <span style="color:#ff0000;"><em>tablename</em></span> with the name of the table that you want to create.<br></p><div class="note">You can modify the sample script file to create multiple databases and tables all at once. Additionally, the sample script creates a very simple table. You will likely have additional data requirements for your tables.</div></li><li>Save the changes to the <em>example.sql</em> file and exit the text editor.</li><li><p>To process the SQL script, type the following command. Replace <span style="color:#ff0000;"><em>username</em></span> with the name of the user you created in step 1:<br></p><pre class="command">mysql -u username -p &lt; example.sql</pre>
+<p> The <em>mysql</em> program processes the script file statement by statement. When it finishes, the database and table are created, and the table contains the data you specified in the <strong>INSERT</strong> statements.</p>
+</li>
+</ol>
+<h4 id="Deleting-tables-and-databases">Deleting tables and databases</h4>
+<p>To delete a table, type the following command from the <strong>mysql&gt;</strong> prompt. Replace <span style="color:#ff0000;"><em>tablename</em></span> with the name of the table that you want to delete:</p>
+<pre class="command">DROP TABLE tablename;</pre>
+<div class="note">This command assumes that you have already selected a database by using the <strong>USE</strong> statement.</div>
+<p>Similarly, to delete an entire database, type the following command from the <strong>mysql&gt;</strong> prompt. Replace <span style="color:#ff0000;"><em>dbname</em></span> with the name of the database that you want to delete:</p>
+<pre class="command">DROP DATABASE dbname;</pre>
+<div class="warning">The <em>mysql</em> program does not ask for confirmation when you use this command. As soon as you press Enter, MySQL deletes the database and all of the data it contains.</div>
+<h4 id="Deleting-users">Deleting users</h4>
+<p>To view a list of all users, type the following command from the <strong>mysql&gt;</strong> prompt:</p>
+<pre class="command">SELECT user FROM mysql.user GROUP BY user;</pre>
+<p>To delete a specific user, type the following command from the <strong>mysql&gt;</strong> prompt. Replace <span style="color:#ff0000;"><em>username</em></span> with the name of the user that you want to delete:</p>
+<pre class="command">DELETE FROM mysql.user WHERE user = 'username';</pre><h4 id="More-Information">More Information</h4><p>To view the official MySQL documentation, please visit <a href="https://dev.mysql.com/doc/refman/5.5/en/index.html">https://dev.mysql.com/doc/refman/5.5/en/index.html</a>.</p>
+<p> <br></p><h4 id="Related-Articles">Related Articles</h4><ul class="related-articles">
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/connect-to-mysql-from-the-command-line">Connecting to MySQL from the command line</a><p>You use the mysql program to connect directly to MySQL from the command line. Learn how here.</p>
+</li><li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/reset-mysql-root-password">Reset MySQL root password</a><p>If you have forgotten your root password for MySQL, this article shows you how to reset it. Note that you must have root access to your server to accomplish this.</p>
+</li></ul>
+ </div>
+</div>
+</div>
+<div id="rightpanel" class="col-md-12 col-lg-4">
+<aside class="sidenav">
+<h4><a href="https://www.a2hosting.com/kb/developer-corner/mysql">MySQL</a></h4>
+<ul id="nav-sub">
+<li class="first"><a href="https://www.a2hosting.com/kb/developer-corner/mysql/connect-to-mysql-from-the-command-line">Connecting to MySQL from the command line</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/connect-to-mysql-using-php">Connecting to MySQL using PHP</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/connecting-to-mysql-using-python">Connecting to MySQL using Python</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/connecting-to-mysql-using-node-js">Connecting to MySQL using Node.js</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/connect-to-mysql-using-perl">Connecting to MySQL using Perl</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/connecting-to-mysql-using-microsoft-net">Connecting to MySQL using Microsoft .NET</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/import-and-export-a-mysql-database">Import and export a MySQL database</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/remote-mysql-connections">Remote MySQL connections</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/mysql-client-applications">MySQL client applications</a></li>
+<li class="active"><a href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line">Managing MySQL databases and users from the command line</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/convert-mysql-database-utf-8">Convert a MySQL database to UTF-8</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/convert-the-mysql-time-zone">Convert the MySQL time zone</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/mysql-database-backups-using-cron-jobs">MySQL database backups using cron jobs</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/mysql-database-backups-using-automysqlbackup">MySQL database backups using AutoMySQLBackup</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/the-information-schema-database">The information_schema database</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/reset-mysql-root-password">Reset MySQL root password</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/mysql-runs-out-of-memory-or-does-not-start">MySQL runs out of memory or does not start</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/mysql-user-privileges-on-shared-servers">MySQL user privileges on shared servers</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/mysql-stored-functions-and-procedures">MySQL stored functions and procedures</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/mysql-views">MySQL views</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/mysql-triggers">MySQL triggers</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/working-with-mysql-database-engines">Working with MySQL database engines</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/determining-the-size-of-mysql-databases-and-tables">Determining the size of MySQL databases and tables</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/repairing-mysql-databases-and-tables">Repairing MySQL databases and tables</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/enabling-the-slow-query-log-in-mysql">Enabling the slow query log in MySQL</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/renaming-a-mysql-database">Renaming a MySQL database</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/using-indexes-to-improve-mysql-query-performance">Using indexes to improve MySQL query performance</a></li>
+<li><a href="https://www.a2hosting.com/kb/developer-corner/mysql/restricting-mysql-port-access">Restricting MySQL port access</a></li>
+<li class="last"><a href="https://www.a2hosting.com/kb/developer-corner/mysql/installing-phpmyadmin-on-managed-hosting-accounts">Installing phpMyAdmin on managed hosting accounts</a></li>
+</ul>
+</aside>
+<aside class="sidenav">
+<h4>Article Details</h4>
+<ul class="nav-sub">
+
+<li class="details">Relevant Products:<ul id="appliestolist">
+<li class="appliesto"><a href="https://www.a2hosting.com/cloud-vps-hosting">Cloud VPS</a></li><li class="appliesto"><a href="https://www.a2hosting.com/flex-dedicated-hosting">Unmanaged Flex Dedicated Server</a></li><li class="appliesto"><a href="https://www.a2hosting.com/vps-hosting">Unmanaged VPS</a></li>
+</ul></li>
+<li class="details">Author: Chris C.</li>
+<li class="details">Reviewed: Feb 02, 2019</li>
+<li class="details">Skill Level: Intermediate</li>
+</ul>
+<a class="btn btn-primary" href="https://my.a2hosting.com/?m=a2_suggestionbox">Suggest an Article</a>
+<a class="btn btn-success" href="https://www.a2hosting.com/mysql-hosting">Get MySQL Hosting</a>
+</aside>
+</div>
+</div>
+</section>
+<script src="./Managing MySQL Databases and Users From the Command Line_files/kb-notice.js.download"></script>
+<section class="newsletter-block">
+<div class="container">
+<div class="row">
+<div class="col-md-5 col-sm-12">
+<div class="text">
+<h2 class="newsletter-title">Newsletter</h2>
+<p class="newsletter-content">Web development tips, marketing strategies and A2 Hosting news sent to your inbox.</p>
+</div>
+</div>
+<div class="col-md-7 col-sm-12">
+<form action="https://a2hosting.getresponse360.com/add_subscriber.html" accept-charset="utf-8" method="post" class="newsletter-form">
+<div class="row">
+<div class="col col-sm-8">
+<input type="email" class="form-control" name="email" placeholder="Enter your email address">
+</div>
+<div class="col col-sm-4">
+<input type="submit" value="SIGN UP" class="btn btn-default btn-block btn-lg text-uppercase">
+</div>
+</div>
+
+
+<input type="hidden" name="campaign_token" value="n5CMl">
+</form>
+<ul class="socialnetworks list-inline">
+<li><a href="https://www.facebook.com/a2webhosting/" class="icon-facebook footer-social-button"></a></li>
+<li><a href="https://twitter.com/a2hosting" class="icon-twitter footer-social-button"></a></li>
+<li><a href="https://www.linkedin.com/company/a2-hosting" class="icon-linkedin footer-social-button"></a></li>
+<li><a href="https://www.youtube.com/user/A2HostingHelp" class="icon-youtube footer-social-button"></a></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<div id="footer_container" class="footer-area">
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<div class="holder">
+<div class="links">
+<strong class="heading text-uppercase"><a class="footer-heading-link" href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#">HOSTING</a></strong>
+<ul class="list-unstyled js-slide-hidden">
+<li><a href="https://www.a2hosting.com/web-hosting">Web Hosting</a></li>
+<li><a href="https://www.a2hosting.com/wordpress-hosting">WordPress Hosting</a></li>
+<li><a href="https://www.a2hosting.com/wordpress-hosting/managed">Managed WordPress Hosting</a></li>
+<li><a href="https://www.a2hosting.com/reseller-hosting">Reseller Hosting</a></li>
+<li><a href="https://www.a2hosting.com/vps-hosting">VPS Hosting</a></li>
+<li><a href="https://www.a2hosting.com/managed-vps-hosting">Managed VPS Hosting</a></li>
+<li><a href="https://www.a2hosting.com/cloud-vps-hosting">Cloud VPS Hosting</a></li>
+<li><a href="https://www.a2hosting.com/dedicated-server-hosting">Dedicated Server Hosting</a></li>
+<li><a href="https://www.a2hosting.com/email-hosting">Email Hosting</a>
+</li></ul>
+</div>
+<div class="links">
+<strong class="heading text-uppercase"><a class="footer-heading-link" href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#">FEATURES</a></strong>
+<ul class="list-unstyled js-slide-hidden">
+<li><a href="https://www.a2hosting.com/developer-friendly-hosting">Developer Friendly Hosting</a>
+</li><li><a href="https://www.a2hosting.com/domains">Domain Registration</a></li>
+<li><a href="https://www.a2hosting.com/domains/transfer">Domain Transfer</a></li>
+<li><a href="https://www.a2hosting.com/ssl-certificates">SSL Certificates</a></li>
+<li><a href="https://www.a2hosting.com/swiftservers-fast-hosting">SwiftServers Fast Hosting</a></li>
+<li><a href="https://www.a2hosting.com/compare">Compare Hosting</a></li>
+</ul>
+</div>
+<div class="links">
+<strong class="heading text-uppercase"><a class="footer-heading-link" href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#">SERVICES</a></strong>
+<ul class="list-unstyled js-slide-hidden">
+<li><a href="https://www.a2hosting.com/blog-hosting">Blog Hosting</a></li>
+<li><a href="https://www.a2hosting.com/cms-hosting">CMS Hosting</a></li>
+<li><a href="https://www.a2hosting.com/crm-hosting">CRM Hosting</a>
+</li><li><a href="https://www.a2hosting.com/ecommerce-hosting">eCommerce Hosting</a></li>
+<li><a href="https://www.a2hosting.com/forum-hosting">Forum Hosting</a></li>
+<li><a href="https://www.a2hosting.com/linux-hosting">Linux Hosting</a></li>
+<li><a href="https://www.a2hosting.com/wiki-hosting">Wiki Hosting</a></li>
+<li><a href="https://www.a2hosting.com/windows-hosting">Windows Hosting</a></li>
+</ul>
+</div>
+<div class="links">
+<strong class="heading text-uppercase"><a class="footer-heading-link" href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#">SUPPORT</a></strong>
+<ul class="list-unstyled js-slide-hidden">
+<li><a href="https://my.a2hosting.com/submitticket.php">Submit a Support Ticket</a></li>
+<li><a href="https://my.a2hosting.com/contact.php">Contact Sales</a></li>
+<li><a href="https://www.a2hosting.com/kb">Knowledgebase</a></li>
+<li><a href="https://www.a2hosting.com/blog">A2 Hosting Blog</a></li>
+<li><a href="https://www.a2hosting.com/99.9-uptime-commitment">99.9% Uptime Commitment</a></li>
+<li><a href="https://www.a2hosting.com/anytime-money-back-guarantee">Anytime Money Back Guarantee</a></li>
+</ul>
+</div>
+<div class="links">
+<strong class="heading text-uppercase"><a class="footer-heading-link" href="https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line#">COMPANY</a></strong>
+<ul class="list-unstyled js-slide-hidden">
+<li><a href="https://www.a2hosting.com/about">About A2 Hosting</a></li>
+<li><a href="https://www.a2hosting.com/reviews">A2 Hosting Reviews</a></li>
+<li><a href="https://www.a2hosting.com/about/affiliate-program">Affiliate Program</a></li>
+<li><a href="https://www.a2hosting.com/about/careers">Careers</a></li>
+<li><a href="https://www.a2hosting.com/about/data-center">Data Centers</a></li>
+<li><a href="https://www.a2hosting.com/about/policies">Policies</a></li>
+<li><a href="https://www.a2hosting.com/about/policies/terms-of-service">Terms Of Service</a></li>
+<li><a href="https://www.a2hosting.com/about/policies/privacy">Privacy Policy</a></li>
+<li><a href="https://www.a2hosting.com/locations">Locations</a></li>
+<li><a href="https://www.a2hosting.com/about/refer-a-friend">Refer-A-Friend</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-6">
+<div class="payment-methods">
+<strong class="title">Payment accepted</strong>
+<ul class="list-inline">
+<li><img src="./Managing MySQL Databases and Users From the Command Line_files/us-cc.webp" alt="stripe"></li><li><img src="./Managing MySQL Databases and Users From the Command Line_files/payment-paypal.webp" alt="paypalbilling"></li><li><img src="./Managing MySQL Databases and Users From the Command Line_files/skrill_banner.webp" alt="moneybookers"></li></ul>
+</div>
+</div>
+<div class="col-sm-6">
+<ul class="approved-items list-inline">
+<li>
+<a href="https://www.bbb.org/eastern-michigan/business-reviews/internet-web-hosting/a2-hosting-inc-in-ann-arbor-mi-49003294/#bbbonlineclick" target="_blank">
+<img src="./Managing MySQL Databases and Users From the Command Line_files/endorsement-bbb-accredited-business.webp" alt="BBB Accredited Business">
+</a>
+</li>
+<li>
+<a href="https://www.glassdoor.com/Overview/Working-at-A2-Hosting-EI_IE236750.11,21.htm" target="_blank">
+<img src="./Managing MySQL Databases and Users From the Command Line_files/verticalStarRating.htm" alt="glassdoor">
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="gdpr_notice" style="display: block;">
+<div class="container">
+<div class="row">
+<p>We use cookies to personalize the website for you and to analyze the use of our website. You consent to this by clicking on "I consent" or by continuing your use of this website. Further information about cookies can be found in our <a href="https://www.a2hosting.com/about/website-privacy">Privacy Policy</a>.</p>
+<p class="bottom-align"><button class="btn btn-primary" value="consent">I consent</button></p>
+</div>
+</div>
+</div>
+</div>
+<footer id="footer">
+<div class="container">
+<span class="copyright">Copyright © <a href="https://www.a2hosting.com/">A2 HOSTING</a> 2019</span>
+</div>
+</footer>
+</div>
+<script type="text/javascript" src="./Managing MySQL Databases and Users From the Command Line_files/a2_livechat.js.download" async=""></script>
+<script type="text/javascript" src="./Managing MySQL Databases and Users From the Command Line_files/a2_gdpr.js.download" async=""></script>
+<script type="text/javascript">
+			if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+			var msViewportStyle = document.createElement('style')
+			msViewportStyle.appendChild(
+			document.createTextNode(
+			 '@-ms-viewport{width:auto!important}'
+			)
+			)
+			document.querySelector('head').appendChild(msViewportStyle)
+			}
+	</script>
+<script>
+		var ie = /MSIE (\d+)/.exec(navigator.userAgent);
+		ie = ie? ie[1] : null;
+		if(ie != null && ie < 11) {
+			$('#header').append('<div class="alert alert-warning old-browser-notice"><div class="notice-content"><h4>Please Note</h4><span class="notice-text">Your browser is <strong>no longer supported by Microsoft</strong>. As a result some parts of this web site will not render properly.We recommend upgrading to a modern browser such as Chrome, Firefox or Microsoft Edge.</span></div></div>');
+			$('.old-browser-notice').show();
+		}
+	</script>
+
+<script id="ztest-include-footer-all" class="jstest"></script>
+
+
+<script type="text/javascript">
+// remove empty p and h3 tags that added spacing in the old site
+
+$( document ).ready( function () {	
+	$('p').each(function () {
+		if ($(this).html().trim() === "&nbsp;") { 
+			$(this).hide();
+		}
+	});
+	
+	$('h3').each(function () {
+		if ($(this).html().trim() === "&nbsp;") { 
+			$(this).hide();
+		}
+	});
+});
+</script>
+
+
+
+<script>
+!function(f,b,e,v,n,t,s) {
+if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)
+};
+
+if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '475481482662863');
+fbq('track', "PageView");
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=475481482662863&ev=PageView&noscript=1" /></noscript>
+
+
+
+<script>
+    (function(w, d, t, r, u) {
+        var f, n, i;
+        w[ u ] = w[ u ] || [], f = function() {
+            var o = {
+                ti: "5039590"
+            };
+            o.q = w[ u ], w[ u ] = new UET(o), w[ u ].push("pageLoad")
+        }, n = d.createElement(t), n.src = r, n.async = 1, n.onload = n.onreadystatechange = function() {
+            var s = this.readyState;
+            s && s !== "loaded" && s !== "complete" || (f(), n.onload = n.onreadystatechange = null)
+        }, i = d.getElementsByTagName(t)[0], i.parentNode.insertBefore(n, i)
+    })(window, document, "script", "//bat.bing.com/bat.js", "uetq");
+</script>
+<noscript><img src="//bat.bing.com/action/0?ti=5039590&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /></noscript>
+
+
+<script type="text/javascript">
+document.write(unescape("%3Cscript id='pap_x2s6df8d' src='" + (("https:" == document.location.protocol) ? "https://" : "http://") +
+"affiliates.a2hosting.com/scripts/trackjs.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script id="pap_x2s6df8d" src="./Managing MySQL Databases and Users From the Command Line_files/trackjs.js.download" type="text/javascript"></script><script type="text/javascript" src="./Managing MySQL Databases and Users From the Command Line_files/track.php"></script><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.5501759383126668"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.09350084899845768" width="0" height="0" alt="" src="./Managing MySQL Databases and Users From the Command Line_files/0"></div>
+<script type="text/javascript">
+PostAffTracker.setAccountId('default1');
+PostAffTracker.disableTrackingMethod('F');
+try {
+PostAffTracker.track();
+} catch (err) { }
+</script>
+
+
+
+
+
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:75404,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+
+<iframe id="font-resize-frame-238" class="font-resize-helper" style="width: 100em; height: 10px; position: absolute; border-width: 0px; top: -9999px; left: -9999px;" src="./Managing MySQL Databases and Users From the Command Line_files/saved_resource.html"></iframe><img src="./Managing MySQL Databases and Users From the Command Line_files/cart.php" id="whmcs_cur"></body></html>

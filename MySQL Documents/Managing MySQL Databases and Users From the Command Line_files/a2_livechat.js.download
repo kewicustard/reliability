@@ -1,0 +1,5 @@
+function a2_livechat_open(){if(typeof goog_report_conversion==="function"){goog_report_conversion();}
+var current_domain=window.location.hostname.substring(window.location.hostname.lastIndexOf(".")+1);var language='english';if(current_domain=='mx'){language='spanish';}
+window.open('https://support.a2hosting.com/visitor/index.php?/'+language+'/LiveChat/Chat/Request/_sessionID=/_promptType=chat/_proactive=0/_filterDepartmentID=/_randomNumber=bq5qsvg4ljd41vhyyx22xvjq9g48cvlh/_fullName=/_email=/','livechatwin','toolbar=0,location=0,directories=0,status=1,menubar=0,scrollbars=0,resizable=1,width=600,height=680');}
+function comm100_livechat_open_link(campaignId=13){if(typeof goog_report_conversion==="function"){goog_report_conversion();}
+var c100_chat_div=document.getElementById('comm100-button-'+campaignId);var chatLinkQuery=c100_chat_div.getElementsByTagName('a');if(chatLinkQuery.length>0){chatLinkQuery[0].click();}}

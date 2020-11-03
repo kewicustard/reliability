@@ -1,0 +1,2 @@
+function a2_kb_banner(hostname){if(hostname==='www.a2hosting.com.mx'||hostname=='a2hosting.com.mx'){$('.kb-notice-es').show();}}
+a2_kb_banner(window.location.hostname);
