@@ -1,8 +1,13 @@
 $(document).ready(function () {
+
+    // Define constant
+    var yearNoTarget = [2019, 2020, 2021];
+    // ./Define constant
+
     var selectedDistrictValue = $("#selectedDistrict option:selected").val();
     var selectedYear = $("#selectedYear option:selected").text();
     var checkTarget;
-    if (selectedYear >= 2019) {
+    if (yearNoTarget.includes(parseInt(selectedYear))) {
         checkTarget = 0; // hasn't target
     } else {
         checkTarget = 1; // has target
@@ -18,7 +23,7 @@ $(document).ready(function () {
         selectedDistrict = $("#selectedDistrict option:selected").text();
         selectedDistrictValue = $("#selectedDistrict option:selected").val();
         selectedYear = $("#selectedYear option:selected").text();
-        if (selectedYear >= 2019) {
+        if (yearNoTarget.includes(parseInt(selectedYear))) {
             checkTarget = 0; // hasn't target
         } else {
             checkTarget = 1; // has target

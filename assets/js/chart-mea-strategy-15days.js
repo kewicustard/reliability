@@ -18,25 +18,6 @@ $(document).ready(function () {
     showGraphAndKpi(selectedYear, checkTarget);
     // showGraphAndKpi($("#selectedYear option:selected").text());    
 
-    // show selectedYear and selectedYear head
-    $("#selectedYear").on("change", function() {
-        
-        $("#main-content").addClass("d-none");
-        $(".loader-wraper").removeClass("d-none");
-        
-        selectedYear = $("#selectedYear option:selected").text();
-        $("#selectedYear_head").text(selectedYear);
-        if (selectedYear >= 2019) {
-            checkTarget = 0; // hasn't target
-        } else {
-            checkTarget = 1; // has target
-        }
-        showGraphAndKpi(selectedYear, checkTarget);
-        // console.log(selectedYear);
-    });
-    
-    // /show selectedYear and selectedYear head
-
     // toggle Table
     {
         $("#toggle_saifi_m").on("click", function() {
@@ -86,19 +67,20 @@ $(document).ready(function () {
 function showGraphAndKpi(selectedYear, checkTarget) {
 
     $.get("assets/php/mea-strategy-15days.php",
-    { selectedYear: selectedYear, checkTarget: checkTarget },
-    function (res) // get json data from mea-strategy-15days.php file
-    {
-        if (checkTarget == 1) { // has target
-            hasTarget(res);
-            // console.log(checkTarget);
-        } else { // hasn't target, use compare with previous year
-            comparePreviousYear(res);
-            // console.log(checkTarget);
+        { selectedYear: selectedYear, checkTarget: checkTarget },
+        function (res) // get json data from mea-strategy-15days.php file
+        {
+            if (checkTarget == 1) { // has target
+                $("h1").html('MEA Unofficial accumulated to <span class="text-muted" id="selectedYear_head">' + res.lasted_day + '/' + res.lasted_month + '/' + selectedYear +'</span> (เทียบกับเป้าหมายปี ' + (parseInt(selectedYear)-1) + ')');
+                hasTarget(res);
+                // console.log(checkTarget);
+            } else { // hasn't target, use compare with previous year
+                $("h1").html('MEA Unofficial accumulated to <span class="text-muted" id="selectedYear_head">' + res.lasted_day + '/' + res.lasted_month + '/' + selectedYear +'</span> (เทียบกับปี ' + (parseInt(selectedYear)-1) + ')');
+                comparePreviousYear(res);
+                // console.log(checkTarget);
+            }
         }
-
-        $("h1").html('MEA Unofficial accumulated to <span class="text-muted" id="selectedYear_head">' + res.lasted_day + '/' + res.lasted_month + '/' + selectedYear +'</span>');
-    });
+    );
 
     function comparePreviousYear(res) {
         console.log(res);

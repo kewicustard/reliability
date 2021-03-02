@@ -79,7 +79,7 @@
         
         // MEA customer
         {
-            $sql = 'SELECT month AS data_month, nocus AS mea_cust_month FROM discust WHERE district = 99 and year = '.$previous_year;
+            $sql = 'SELECT month AS data_month, nocus AS mea_cust_month FROM discust WHERE district = 99 and year = "'.$previous_year.'"';
             try {
                 $stmt = $dbh->prepare($sql);
                 $stmt->execute();
@@ -277,7 +277,7 @@
         $sql = 'SELECT max(month(date)) AS lasted_month 
                     FROM indices_db_15days 
                     WHERE year(date) = "'.$selectedYear.'"';
-
+        
         try {
             $stmt = $dbh->prepare($sql);
             $stmt->execute();
@@ -296,7 +296,7 @@
         $sql = 'SELECT max(day(date)) AS lasted_day 
                     FROM indices_db_15days 
                     WHERE year(date) = "'.$selectedYear.'" and month(date) = "'.$lasted_month.'"';
-
+        
         try {
             $stmt = $dbh->prepare($sql);
             $stmt->execute();
@@ -309,6 +309,7 @@
         settype($lasted_day, "float");
         // echo(type($lasted_day);
         // echo(gettype($lasted_day));
+        // echo($lasted_day);
     }
     // /check lasted day of lasted month of indices_db_15,30days table
     

@@ -5,8 +5,8 @@
     $dbh = new PDO($dsn, $username, $password, $options);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $selectedYear = $_GET[selectedYear];
-    $target = (int) $_GET[checkTarget]; // 1 has target for that year.
+    $selectedYear = $_GET['selectedYear'];
+    $target = (int) $_GET['checkTarget']; // 1 has target for that year.
     // echo gettype($target);
     // echo $target;
     if($target == 0){ // hasn't target
@@ -37,40 +37,40 @@
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             // saifi_target
-            $saifi_target[m1][] = $row[saifi_1];
-            $saifi_target[m2][] = $row[saifi_2];
-            $saifi_target[m3][] = $row[saifi_3];
-            $saifi_target[m4][] = $row[saifi_4];
-            $saifi_target[m5][] = $row[saifi_5];
-            $saifi_target[ls1][] = $row[saifi_ls_1];
-            $saifi_target[ls2][] = $row[saifi_ls_2];
-            $saifi_target[ls3][] = $row[saifi_ls_3];
-            $saifi_target[ls4][] = $row[saifi_ls_4];
-            $saifi_target[ls5][] = $row[saifi_ls_5];
-            $saifi_target[f1][] = $row[saifi_f_1];
-            $saifi_target[f2][] = $row[saifi_f_2];
-            $saifi_target[f3][] = $row[saifi_f_3];
-            $saifi_target[f4][] = $row[saifi_f_4];
-            $saifi_target[f5][] = $row[saifi_f_5];
-            $saifi_target[e5][] = $row[saifi_e_5];
+            $saifi_target['m1'][] = $row['saifi_1'];
+            $saifi_target['m2'][] = $row['saifi_2'];
+            $saifi_target['m3'][] = $row['saifi_3'];
+            $saifi_target['m4'][] = $row['saifi_4'];
+            $saifi_target['m5'][] = $row['saifi_5'];
+            $saifi_target['ls1'][] = $row['saifi_ls_1'];
+            $saifi_target['ls2'][] = $row['saifi_ls_2'];
+            $saifi_target['ls3'][] = $row['saifi_ls_3'];
+            $saifi_target['ls4'][] = $row['saifi_ls_4'];
+            $saifi_target['ls5'][] = $row['saifi_ls_5'];
+            $saifi_target['f1'][] = $row['saifi_f_1'];
+            $saifi_target['f2'][] = $row['saifi_f_2'];
+            $saifi_target['f3'][] = $row['saifi_f_3'];
+            $saifi_target['f4'][] = $row['saifi_f_4'];
+            $saifi_target['f5'][] = $row['saifi_f_5'];
+            $saifi_target['e5'][] = $row['saifi_e_5'];
 
             // saidi_target
-            $saidi_target[m1][] = $row[saidi_1];
-            $saidi_target[m2][] = $row[saidi_2];
-            $saidi_target[m3][] = $row[saidi_3];
-            $saidi_target[m4][] = $row[saidi_4];
-            $saidi_target[m5][] = $row[saidi_5];
-            $saidi_target[ls1][] = $row[saidi_ls_1];
-            $saidi_target[ls2][] = $row[saidi_ls_2];
-            $saidi_target[ls3][] = $row[saidi_ls_3];
-            $saidi_target[ls4][] = $row[saidi_ls_4];
-            $saidi_target[ls5][] = $row[saidi_ls_5];
-            $saidi_target[f1][] = $row[saidi_f_1];
-            $saidi_target[f2][] = $row[saidi_f_2];
-            $saidi_target[f3][] = $row[saidi_f_3];
-            $saidi_target[f4][] = $row[saidi_f_4];
-            $saidi_target[f5][] = $row[saidi_f_5];
-            $saidi_target[e5][] = $row[saidi_e_5];
+            $saidi_target['m1'][] = $row['saidi_1'];
+            $saidi_target['m2'][] = $row['saidi_2'];
+            $saidi_target['m3'][] = $row['saidi_3'];
+            $saidi_target['m4'][] = $row['saidi_4'];
+            $saidi_target['m5'][] = $row['saidi_5'];
+            $saidi_target['ls1'][] = $row['saidi_ls_1'];
+            $saidi_target['ls2'][] = $row['saidi_ls_2'];
+            $saidi_target['ls3'][] = $row['saidi_ls_3'];
+            $saidi_target['ls4'][] = $row['saidi_ls_4'];
+            $saidi_target['ls5'][] = $row['saidi_ls_5'];
+            $saidi_target['f1'][] = $row['saidi_f_1'];
+            $saidi_target['f2'][] = $row['saidi_f_2'];
+            $saidi_target['f3'][] = $row['saidi_f_3'];
+            $saidi_target['f4'][] = $row['saidi_f_4'];
+            $saidi_target['f5'][] = $row['saidi_f_5'];
+            $saidi_target['e5'][] = $row['saidi_e_5'];
         }
         // print_r($saidi_target);
         // /Target
@@ -250,23 +250,23 @@
             // /calculate EGAT saifi saidi
         }
 
-        $saifi_previous_year[m] = $saifi_m_previous_year;
-        $saifi_previous_year[m_month] = $saifi_m_month_previous_year;
-        $saifi_previous_year[ls] = $saifi_ls_previous_year;
-        $saifi_previous_year[ls_month] = $saifi_ls_month_previous_year;
-        $saifi_previous_year[f] = $saifi_f_previous_year;
-        $saifi_previous_year[f_month] = $saifi_f_month_previous_year;
-        $saifi_previous_year[e] = $saifi_e_previous_year;
-        $saifi_previous_year[e_month] = $saifi_e_month_previous_year;
+        $saifi_previous_year['m'] = $saifi_m_previous_year;
+        $saifi_previous_year['m_month'] = $saifi_m_month_previous_year;
+        $saifi_previous_year['ls'] = $saifi_ls_previous_year;
+        $saifi_previous_year['ls_month'] = $saifi_ls_month_previous_year;
+        $saifi_previous_year['f'] = $saifi_f_previous_year;
+        $saifi_previous_year['f_month'] = $saifi_f_month_previous_year;
+        $saifi_previous_year['e'] = $saifi_e_previous_year;
+        $saifi_previous_year['e_month'] = $saifi_e_month_previous_year;
         
-        $saidi_previous_year[m] = $saidi_m_previous_year;
-        $saidi_previous_year[m_month] = $saidi_m_month_previous_year;
-        $saidi_previous_year[ls] = $saidi_ls_previous_year;
-        $saidi_previous_year[ls_month] = $saidi_ls_month_previous_year;
-        $saidi_previous_year[f] = $saidi_f_previous_year;
-        $saidi_previous_year[f_month] = $saidi_f_month_previous_year;
-        $saidi_previous_year[e] = $saidi_e_previous_year;
-        $saidi_previous_year[e_month] = $saidi_e_month_previous_year;
+        $saidi_previous_year['m'] = $saidi_m_previous_year;
+        $saidi_previous_year['m_month'] = $saidi_m_month_previous_year;
+        $saidi_previous_year['ls'] = $saidi_ls_previous_year;
+        $saidi_previous_year['ls_month'] = $saidi_ls_month_previous_year;
+        $saidi_previous_year['f'] = $saidi_f_previous_year;
+        $saidi_previous_year['f_month'] = $saidi_f_month_previous_year;
+        $saidi_previous_year['e'] = $saidi_e_previous_year;
+        $saidi_previous_year['e_month'] = $saidi_e_month_previous_year;
         // print_r($saifi_previous_year);
         // print_r($saidi_previous_year);
         // /Previous year
@@ -286,7 +286,7 @@
         }
 
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $lasted_month = $row[0][lasted_month];
+        $lasted_month = $row[0]['lasted_month'];
         // echo($lasted_month);
     }
     // /check lasted month of indices_db table
@@ -310,13 +310,13 @@
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 if ($i == 0) {
                     $accuMeaCust[$i] = [
-                                                data_month => $row[data_month], 
-                                                mea_cust_month => $row[mea_cust_month]
+                                                'data_month' => $row['data_month'], 
+                                                'mea_cust_month' => $row['mea_cust_month']
                                             ];
                 } else {
                     $accuMeaCust[$i] = [
-                                                data_month => $row[data_month], 
-                                                mea_cust_month => $accuMeaCust[$i-1][mea_cust_month]+$row[mea_cust_month]
+                                                'data_month' => $row['data_month'], 
+                                                'mea_cust_month' => $accuMeaCust[$i-1]['mea_cust_month']+$row['mea_cust_month']
                                             ];
                 }
                 $eachMeaCust[] = $row;
@@ -525,32 +525,32 @@
     if ($target != 0) { //has target, use target
         
         echo json_encode([  
-            saifi => $saifi, 
-            saidi => $saidi,
-            saifi_month => $saifi_month, 
-            saidi_month => $saidi_month,
-            saifi_ls => $saifi_ls,
-            saidi_ls => $saidi_ls,
-            saifi_ls_month => $saifi_ls_month,
-            saidi_ls_month => $saidi_ls_month,
-            saifi_f => $saifi_f,
-            saidi_f => $saidi_f,
-            saifi_f_month => $saifi_f_month,
-            saidi_f_month => $saidi_f_month,
-            saifi_e => $saifi_e,
-            saidi_e => $saidi_e,
-            saifi_e_month => $saifi_e_month,
-            saidi_e_month => $saidi_e_month,
-            saifi_target => $saifi_target,
-            saidi_target => $saidi_target,
-            saifi_kpi => $saifi_kpi,
-            saidi_kpi => $saidi_kpi,
-            saifi_ls_kpi => $saifi_ls_kpi,
-            saidi_ls_kpi => $saidi_ls_kpi,
-            saifi_f_kpi => $saifi_f_kpi,
-            saidi_f_kpi => $saidi_f_kpi,
-            saifi_e_kpi => $saifi_e_kpi,
-            saidi_e_kpi => $saidi_e_kpi,
+            'saifi' => $saifi, 
+            'saidi' => $saidi,
+            'saifi_month' => $saifi_month, 
+            'saidi_month' => $saidi_month,
+            'saifi_ls' => $saifi_ls,
+            'saidi_ls' => $saidi_ls,
+            'saifi_ls_month' => $saifi_ls_month,
+            'saidi_ls_month' => $saidi_ls_month,
+            'saifi_f' => $saifi_f,
+            'saidi_f' => $saidi_f,
+            'saifi_f_month' => $saifi_f_month,
+            'saidi_f_month' => $saidi_f_month,
+            'saifi_e' => $saifi_e,
+            'saidi_e' => $saidi_e,
+            'saifi_e_month' => $saifi_e_month,
+            'saidi_e_month' => $saidi_e_month,
+            'saifi_target' => $saifi_target,
+            'saidi_target' => $saidi_target,
+            'saifi_kpi' => $saifi_kpi,
+            'saidi_kpi' => $saidi_kpi,
+            'saifi_ls_kpi' => $saifi_ls_kpi,
+            'saidi_ls_kpi' => $saidi_ls_kpi,
+            'saifi_f_kpi' => $saifi_f_kpi,
+            'saidi_f_kpi' => $saidi_f_kpi,
+            'saifi_e_kpi' => $saifi_e_kpi,
+            'saidi_e_kpi' => $saidi_e_kpi,
         ]);
 
     } else { //no target, use previous year
@@ -594,51 +594,64 @@
     $dbh = null;
 
     // fectch PDO object to variable
-    function fetchCustNumMin($row, $no_month) {        
+    function fetchCustNumMin($row, $no_month) {  
         $x = 0; // count for index $row
         $accuCustNumMin = array();
         $eachCustNumMin = array();
         for ($i = 0; $i < $no_month; $i++) {
             if ($i == 0) {
-                if ($row[$x][data_month] == $i+1) {
+                if ($row[$x]['data_month'] == $i+1) {
                     $accuCustNumMin[$i] = [
-                                            data_month => $row[$x][data_month], 
-                                            cust_num_month => $row[$x][cust_num_month], 
-                                            cust_min_month => $row[$x][cust_min_month]
+                                            'data_month' => $row[$x]['data_month'], 
+                                            'cust_num_month' => $row[$x]['cust_num_month'], 
+                                            'cust_min_month' => $row[$x]['cust_min_month']
                                           ];
                     $eachCustNumMin[$i] = $accuCustNumMin[$i];
                     $x++;
                 } else {
                     $accuCustNumMin[$i] = [
-                                            data_month => $i+1, 
-                                            cust_num_month => 0, 
-                                            cust_min_month => 0
+                                            'data_month' => $i+1, 
+                                            'cust_num_month' => 0, 
+                                            'cust_min_month' => 0
                                           ];
                     $eachCustNumMin[$i] = $accuCustNumMin[$i];
                 }            
             } else {
-                if ($row[$x][data_month] == $i+1) {
-                    $accuCustNumMin[$i] = [
-                                            data_month => $row[$x][data_month], 
-                                            cust_num_month => $accuCustNumMin[$i-1][cust_num_month]+$row[$x][cust_num_month], 
-                                            cust_min_month => $accuCustNumMin[$i-1][cust_min_month]+$row[$x][cust_min_month]
-                                          ];
-                    $eachCustNumMin[$i] = [
-                                            data_month => $row[$x][data_month], 
-                                            cust_num_month => $row[$x][cust_num_month], 
-                                            cust_min_month => $row[$x][cust_min_month]
-                                          ];
-                    $x++;                                                            
+                if (array_key_exists($x, $row)) {
+                    if ($row[$x]['data_month'] == $i+1) {
+                        $accuCustNumMin[$i] = [
+                                                'data_month' => $row[$x]['data_month'], 
+                                                'cust_num_month' => $accuCustNumMin[$i-1]['cust_num_month']+$row[$x]['cust_num_month'], 
+                                                'cust_min_month' => $accuCustNumMin[$i-1]['cust_min_month']+$row[$x]['cust_min_month']
+                                            ];
+                        $eachCustNumMin[$i] = [
+                                                'data_month' => $row[$x]['data_month'], 
+                                                'cust_num_month' => $row[$x]['cust_num_month'], 
+                                                'cust_min_month' => $row[$x]['cust_min_month']
+                                            ];
+                        $x++;
+                    } else {
+                        $accuCustNumMin[$i] = [
+                                                'data_month' => $i+1, 
+                                                'cust_num_month' => $accuCustNumMin[$i-1]['cust_num_month'], 
+                                                'cust_min_month' => $accuCustNumMin[$i-1]['cust_min_month']
+                                              ];
+                        $eachCustNumMin[$i] = [
+                                                'data_month' => $i+1, 
+                                                'cust_num_month' => 0, 
+                                                'cust_min_month' => 0
+                                              ];
+                    }
                 } else {
                     $accuCustNumMin[$i] = [
-                                            data_month => $i+1, 
-                                            cust_num_month => $accuCustNumMin[$i-1][cust_num_month], 
-                                            cust_min_month => $accuCustNumMin[$i-1][cust_min_month]
+                                            'data_month' => $i+1, 
+                                            'cust_num_month' => $accuCustNumMin[$i-1]['cust_num_month'], 
+                                            'cust_min_month' => $accuCustNumMin[$i-1]['cust_min_month']
                                           ];
                     $eachCustNumMin[$i] = [
-                                            data_month => $i+1, 
-                                            cust_num_month => 0, 
-                                            cust_min_month => 0
+                                            'data_month' => $i+1, 
+                                            'cust_num_month' => 0, 
+                                            'cust_min_month' => 0
                                           ];
                 }  
             }        
@@ -655,8 +668,8 @@
         // $saifi = array();
         // $saidi = array();
         foreach ($CustNumMin as $key => $value) {
-            $saifi[] = number_format($value[cust_num_month]/$MeaCust[$key][mea_cust_month]*$value[data_month], 3, '.', '');
-            $saidi[] = number_format($value[cust_min_month]/$MeaCust[$key][mea_cust_month]*$value[data_month], 3, '.', '');
+            $saifi[] = number_format($value['cust_num_month']/$MeaCust[$key]['mea_cust_month']*$value['data_month'], 3, '.', '');
+            $saidi[] = number_format($value['cust_min_month']/$MeaCust[$key]['mea_cust_month']*$value['data_month'], 3, '.', '');
         }
         
         return [$saifi, $saidi];
@@ -666,8 +679,8 @@
         // $saifi = array();
         // $saidi = array();
         foreach ($CustNumMin as $key => $value) {
-            $saifi[] = number_format($value[cust_num_month]/$MeaCust[$key][mea_cust_month], 3, '.', '');
-            $saidi[] = number_format($value[cust_min_month]/$MeaCust[$key][mea_cust_month], 3, '.', '');
+            $saifi[] = number_format($value['cust_num_month']/$MeaCust[$key]['mea_cust_month'], 3, '.', '');
+            $saidi[] = number_format($value['cust_min_month']/$MeaCust[$key]['mea_cust_month'], 3, '.', '');
         }
         
         return [$saifi, $saidi];

@@ -5,8 +5,8 @@
     $dbh = new PDO($dsn, $username, $password, $options);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $year = $_GET[year];
-    $strategy_target = $_GET[strategy_target];
+    $year = $_GET['year'];
+    $strategy_target = $_GET['strategy_target'];
 
     // check lasted month of indices_db table
     {
@@ -22,7 +22,7 @@
         }
 
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $lasted_month = $row[0][lasted_month];
+        $lasted_month = $row[0]['lasted_month'];
         // echo($lasted_month);
     }
     // /check lasted month of indices_db table

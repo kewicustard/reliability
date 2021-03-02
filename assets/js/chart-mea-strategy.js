@@ -25,7 +25,7 @@ $(document).ready(function () {
         
         selectedYear = $("#selectedYear option:selected").text();
         $("#selectedYear_head").text(selectedYear);
-        if (selectedYear >= 2019) {
+        if (yearNoTarget.includes(parseInt(selectedYear))) {
             checkTarget = 0; // hasn't target
         } else {
             checkTarget = 1; // has target
